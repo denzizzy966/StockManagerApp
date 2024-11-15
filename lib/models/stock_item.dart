@@ -6,6 +6,8 @@ class StockItem {
   final double price;
   final int minStockLevel;
   final DateTime lastUpdated;
+  final String warehouseId;
+  final String warehouseName;
 
   StockItem({
     this.id,
@@ -15,6 +17,8 @@ class StockItem {
     required this.price,
     required this.minStockLevel,
     required this.lastUpdated,
+    required this.warehouseId,
+    required this.warehouseName,
   });
 
   Map<String, dynamic> toMap() {
@@ -26,6 +30,8 @@ class StockItem {
       'price': price,
       'minStockLevel': minStockLevel,
       'lastUpdated': lastUpdated.toIso8601String(),
+      'warehouseId': warehouseId,
+      'warehouseName': warehouseName,
     };
   }
 
@@ -38,6 +44,8 @@ class StockItem {
       price: map['price'],
       minStockLevel: map['minStockLevel'],
       lastUpdated: DateTime.parse(map['lastUpdated']),
+      warehouseId: map['warehouseId'] ?? '',
+      warehouseName: map['warehouseName'] ?? '',
     );
   }
 
@@ -49,6 +57,8 @@ class StockItem {
     double? price,
     int? minStockLevel,
     DateTime? lastUpdated,
+    String? warehouseId,
+    String? warehouseName,
   }) {
     return StockItem(
       id: id ?? this.id,
@@ -58,6 +68,8 @@ class StockItem {
       price: price ?? this.price,
       minStockLevel: minStockLevel ?? this.minStockLevel,
       lastUpdated: lastUpdated ?? this.lastUpdated,
+      warehouseId: warehouseId ?? this.warehouseId,
+      warehouseName: warehouseName ?? this.warehouseName,
     );
   }
 }
